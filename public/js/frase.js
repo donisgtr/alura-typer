@@ -13,4 +13,5 @@ function trocaFrase (data){
    var frase = $(".frase");
    var numeroAleatorio = Math.floor(Math.random() * data.length);
    frase.text(data[numeroAleatorio].texto);
+   
 }
