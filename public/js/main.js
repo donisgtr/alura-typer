@@ -17,14 +17,11 @@ function atualizaTamanhoFrase() {
     tamanhoFrase.text(numPalavras);
 }
 
-<<<<<<< Updated upstream
-=======
 function atualizaTempoInicial(tempo) {
     tempoInicial = tempo;
     $("#tempo-digitacao").text(tempo);
 }
 
->>>>>>> Stashed changes
 function inicializaContadores() {
     campo.on("input", function() {
         var conteudo = campo.val();
