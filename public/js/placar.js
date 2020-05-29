@@ -53,5 +53,4 @@ function removeLinha() {
 
 function mostraPlacar() {
     $(".placar").stop().slideToggle(600);
-    
 }
