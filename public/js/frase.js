@@ -1,5 +1,5 @@
 $("#botao-frase").click(fraseAleatoria);
-
+$("#botao-frase-id")
 function fraseAleatoria(){
     $("#spinner").toggle();
 
