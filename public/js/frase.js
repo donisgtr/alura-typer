@@ -56,3 +56,4 @@ function trocaFrase (dados) {
     atualizaTamanhoFrase();
     atualizaTempoInicial(dados.tempo); 
 }
+
