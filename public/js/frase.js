@@ -33,23 +33,26 @@ function trocaFraseAleatoria (data){
 }
 
 function buscaFrase () {
-    $("#spinner").toggle(); 
+    $("#spinner").toggle();
     var fraseId = $("#frase-id").val();
-    var dados = {
-        id: fraseId
-    }
+    var dados = {id: fraseId}
     $.get("http://localhost:3000/frases", dados, trocaFrase)
-    .fail(function (){
+    .fail(function () {
+        //mostra o erro
         $("#erro").toggle();
         setTimeout(() => {
             $("#erro").toggle();
-        }, 2000)
+        }, 2000)   
     })
+    // sempre que ele acabar com a minha requisição.
     .always(function () {
-       $("spinner").toggle();
-    })
+        $("#spinner").toggle();
+    }) 
 }
 
-function trocaFrase () {
-    console.log("deu certo")
+function trocaFrase (dados) {
+    var frase = $(".frase");
+    frase.text(dados.texto);
+    atualizaTamanhoFrase();
+    atualizaTempoInicial(dados.tempo); 
 }
