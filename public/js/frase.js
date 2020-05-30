@@ -1,11 +1,12 @@
 $("#botao-frase").click(fraseAleatoria);
 $("#botao-frase-id").click(buscaFrase);
+// o toggle mexe na function display: none;
+
 function fraseAleatoria(){
     $("#spinner").toggle();
-
     $.get("http://localhost:3000/frases", trocaFraseAleatoria)
-    
     .fail(function(){
+        //mostra o erro
         $("#erro").toggle();
         setTimeout(() => {
             $("#erro").toggle();
@@ -32,13 +33,21 @@ function trocaFraseAleatoria (data){
 }
 
 function buscaFrase () {
+    $("#spinner").toggle(); 
     var fraseId = $("#frase-id").val();
     var dados = {
         id: fraseId
     }
     $.get("http://localhost:3000/frases", dados, trocaFrase)
-    console.log(dados)
-
+    .fail(function (){
+        $("#erro").toggle();
+        setTimeout(() => {
+            $("#erro").toggle();
+        }, 2000)
+    })
+    .always(function () {
+       $("spinner").toggle();
+    })
 }
 
 function trocaFrase () {
